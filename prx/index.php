@@ -4,7 +4,7 @@
  *
  * PHProxy
  *
- * @author		Miglen; PhoenixPeca
+ * @author		Miglen; PhoenixPeca; biojet1
  * @copyright	2002-2007 A.A. (whitefyre)
  * @description Web based http proxy written on php.
  * @url	 		https://phproxy.github.io
@@ -15,7 +15,7 @@
  */
 
 
-error_reporting(-1);
+error_reporting(0);
 
 //
 // CONFIGURABLE OPTIONS
@@ -43,9 +43,8 @@ $_flags             = array
                         'rotate13'        => 0,
                         'base64_encode'   => 1,
                         'strip_meta'      => 0,
-                        'strip_title'     => 0,
-                        'session_cookies' => 1,
-                        'in_situ'         => 0
+                        'strip_title'     => 1,
+                        'session_cookies' => 1
                     );
 $_frozen_flags      = array
                     (
@@ -58,8 +57,7 @@ $_frozen_flags      = array
                         'base64_encode'   => 0,
                         'strip_meta'      => 0,
                         'strip_title'     => 0,
-                        'session_cookies' => 0,
-                        'in_situ'         => 0
+                        'session_cookies' => 0
                     );
 $_labels            = array
                     (
@@ -72,8 +70,7 @@ $_labels            = array
                         'base64_encode'   => array('Base64', 'Use base64 encoding on the address'),
                         'strip_meta'      => array('Strip Meta', 'Strip meta information tags from pages'),
                         'strip_title'     => array('Strip Title', 'Strip page title'),
-                        'session_cookies' => array('Session Cookies', 'Store cookies for this session only'),
-                        'in_situ'         => array('No proxification', 'No proxification of html, css')
+                        'session_cookies' => array('Session Cookies', 'Store cookies for this session only')
                     );
 
 $_hosts             = array
@@ -618,7 +615,7 @@ while ($_retry);
 // OUTPUT RESPONSE IF NO PROXIFICATION IS NEEDED
 //
 
-if ($_flags['in_situ'] || !isset($_proxify[$_content_type]))
+if (!isset($_proxify[$_content_type]))
 {
     @set_time_limit(0);
 
@@ -681,6 +678,11 @@ if ($_content_type == 'text/css')
 }
 else
 {
+    if(preg_match('/facebook\.com/', $_url_parts['host']) && $_content_type == 'application/xhtml+xml') {
+      $_content_type = 'text/html';
+      $_response_headers['content-type'] = $_content_type.'; charset=utf-8';
+    }
+
     if ($_flags['strip_title'])
     {
         $_response_body = preg_replace('#(<\s*title[^>]*>)(.*?)(<\s*/title[^>]*>)#is', '$1$3', $_response_body);
@@ -739,7 +741,8 @@ else
         'overlay'    => array('src', 'imagemap'),
         'q'          => array('cite'),
         'ul'         => array('src'),
-        'use'         => array('xlink:href')
+        'use'        => array('xlink:href'),
+        'source'     => array('srcset')
     );
 
     preg_match_all('#(<\s*style[^>]*>)(.*?)(<\s*/\s*style[^>]*>)#is', $_response_body, $matches, PREG_SET_ORDER);
@@ -1018,6 +1021,31 @@ else
                     {
                         $rebuild = true;
                         $attrs['longdesc'] = complete_url($attrs['longdesc']);
+                    }
+                    break;
+                case 'source':
+                    if (isset($attrs['srcset']))
+                    {
+                        $rebuild = true;
+                        $str = preg_replace('/\s+/', ' ', $attrs['srcset']);
+                        $src_set_data = explode(',', $attrs['srcset']);
+                        foreach($src_set_data as $item) {
+                            $item = trim($item);
+                            $_data_ = explode(' ', $item);
+                            $src_set_data_2[] = $_data_;
+                        }
+                        foreach($src_set_data_2 as $item) {
+                            foreach($item as $item_2) {
+                                if($item_2 == $item[0]) {
+                                    $final .= complete_url($item_2);
+                                } else {
+                                    $final .= ' '.$item_2;
+                                }
+                            }
+                            $final = trim($final).', ';
+                        }
+                        $attrs['srcset'] = trim(trim($final), ',');
+                        unset($final, $src_set_data_2);
                     }
                     break;
                 default:
