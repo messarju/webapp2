@@ -1,0 +1,813 @@
+_model: page
+---
+title: Ichidan Verb Conjugations
+---
+body:
+
+<div>
+    <table class="table  table-striped table-bordered" style="width: auto; display: inline-block; overflow-x: scroll;">
+        <tbody><tr>
+            <td>
+                <span>
+                    <strong>漢字 - Kanji</strong>
+                </span>
+            </td>
+            <td>
+                <span>
+                    <strong>ひらがな - Hiragana</strong>
+                </span>
+            </td>
+            <td>
+                <span>
+                    <strong>Romaji
+                    <br>(English Letters)</strong>
+                </span>
+            </td>
+            <td>
+                <span>
+                    <strong>Verb Base</strong>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span>いる</span>
+            </td>
+            <td>
+                <span>いる</span>
+            </td>
+            <td colspan="2" bgcolor="white" align="center">
+                <span>iru (to exist (animate), to be somewhere)</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span>い</span>
+            </td>
+            <td>
+                <span>い</span>
+            </td>
+            <td>
+                <span>i</span>
+            </td>
+            <td>
+                <span>Base 1</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span>い</span>
+            </td>
+            <td>
+                <span>い</span>
+            </td>
+            <td>
+                <span>i</span>
+            </td>
+            <td>
+                <span>Base 2</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span>いる</span>
+            </td>
+            <td>
+                <span>いる</span>
+            </td>
+            <td>
+                <span>iru</span>
+            </td>
+            <td>
+                <span>Base 3</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span>いれ</span>
+            </td>
+            <td>
+                <span>いれ</span>
+            </td>
+            <td>
+                <span>ire</span>
+            </td>
+            <td>
+                <span>Base 4</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span>いよう</span>
+            </td>
+            <td>
+                <span>いよう</span>
+            </td>
+            <td>
+                <span>iyou</span>
+            </td>
+            <td>
+                <span>Base 5</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span>いて</span>
+            </td>
+            <td>
+                <span>いて</span>
+            </td>
+            <td>
+                <span>ite</span>
+            </td>
+            <td>
+                <span>Base "te"</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span>いた</span>
+            </td>
+            <td>
+                <span>いた</span>
+            </td>
+            <td>
+                <span>ita</span>
+            </td>
+            <td>
+                <span>Base "ta"</span>
+            </td>
+        </tr>
+    </tbody></table><table class="table  table-striped table-bordered" style="width: auto; display: inline-block; overflow-x: scroll;">
+    <tbody><tr>
+        <td>
+            <span>
+                <strong>漢字 - Kanji</strong>
+            </span>
+        </td>
+        <td>
+            <span>
+                <strong>ひらがな - Hiragana</strong>
+            </span>
+        </td>
+        <td>
+            <span>
+                <strong>Romaji
+                <br>(English Letters)</strong>
+            </span>
+        </td>
+        <td>
+            <span>
+                <strong>Verb Base</strong>
+            </span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <span>見る</span>
+        </td>
+        <td>
+            <span>みる</span>
+        </td>
+        <td>
+            <span>miru (to see)</span>
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <span>見</span>
+        </td>
+        <td>
+            <span>み</span>
+        </td>
+        <td>
+            <span>mi</span>
+        </td>
+        <td>
+            <span>Base 1</span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <span>見</span>
+        </td>
+        <td>
+            <span>み</span>
+        </td>
+        <td>
+            <span>mi</span>
+        </td>
+        <td>
+            <span>Base 2</span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <span>見る</span>
+        </td>
+        <td>
+            <span>みる</span>
+        </td>
+        <td>
+            <span>miru</span>
+        </td>
+        <td>
+            <span>Base 3</span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <span>見れ</span>
+        </td>
+        <td>
+            <span>みれ</span>
+        </td>
+        <td>
+            <span>mire</span>
+        </td>
+        <td>
+            <span>Base 4</span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <span>見よう</span>
+        </td>
+        <td>
+            <span>みよう</span>
+        </td>
+        <td>
+            <span>miyou</span>
+        </td>
+        <td>
+            <span>Base 5</span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <span>見て</span>
+        </td>
+        <td>
+            <span>みて</span>
+        </td>
+        <td>
+            <span>mite</span>
+        </td>
+        <td>
+            <span>Base "te"</span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <span>見た</span>
+        </td>
+        <td>
+            <span>みた</span>
+        </td>
+        <td>
+            <span>mita</span>
+        </td>
+        <td>
+            <span>Base "ta"</span>
+        </td>
+    </tr>
+</tbody></table><table class="table  table-striped table-bordered" style="width: auto; display: inline-block; overflow-x: scroll;">
+<tbody><tr>
+    <td>
+        <span>
+            <strong>漢字 - Kanji</strong>
+        </span>
+    </td>
+    <td>
+        <span>
+            <strong>ひらがな - Hiragana</strong>
+        </span>
+    </td>
+    <td>
+        <span>
+            <strong>Romaji
+            <br>(English Letters)</strong>
+        </span>
+    </td>
+    <td>
+        <span>
+            <strong>Verb Base</strong>
+        </span>
+    </td>
+</tr>
+<tr>
+    <td>
+        <span>寝る</span>
+    </td>
+    <td>
+        <span>ねる</span>
+    </td>
+    <td>
+        <span>neru (to sleep)</span>
+    </td>
+    <td></td>
+</tr>
+<tr>
+    <td>
+        <span>寝</span>
+    </td>
+    <td>
+        <span>ね</span>
+    </td>
+    <td>
+        <span>ne</span>
+    </td>
+    <td>
+        <span>Base 1</span>
+    </td>
+</tr>
+<tr>
+    <td>
+        <span>寝</span>
+    </td>
+    <td>
+        <span>ね</span>
+    </td>
+    <td>
+        <span>ne</span>
+    </td>
+    <td>
+        <span>Base 2</span>
+    </td>
+</tr>
+<tr>
+    <td>
+        <span>寝る</span>
+    </td>
+    <td>
+        <span>ねる</span>
+    </td>
+    <td>
+        <span>neru</span>
+    </td>
+    <td>
+        <span>Base 3</span>
+    </td>
+</tr>
+<tr>
+    <td>
+        <span>寝れ</span>
+    </td>
+    <td>
+        <span>ねれ</span>
+    </td>
+    <td>
+        <span>nere</span>
+    </td>
+    <td>
+        <span>Base 4</span>
+    </td>
+</tr>
+<tr>
+    <td>
+        <span>寝よう</span>
+    </td>
+    <td>
+        <span>ねよう</span>
+    </td>
+    <td>
+        <span>neyou</span>
+    </td>
+    <td>
+        <span>Base 5</span>
+    </td>
+</tr>
+<tr>
+    <td>
+        <span>寝て</span>
+    </td>
+    <td>
+        <span>ねて</span>
+    </td>
+    <td>
+        <span>nete</span>
+    </td>
+    <td>
+        <span>Base "te"</span>
+    </td>
+</tr>
+<tr>
+    <td>
+        <span>寝た</span>
+    </td>
+    <td>
+        <span>ねた</span>
+    </td>
+    <td>
+        <span>neta</span>
+    </td>
+    <td>
+        <span>Base "ta"</span>
+    </td>
+</tr>
+</tbody></table><table class="table  table-striped table-bordered" style="width: auto; display: inline-block; overflow-x: scroll;">
+<tbody><tr>
+<td>
+    <span>
+        <strong>漢字 - Kanji</strong>
+    </span>
+</td>
+<td>
+    <span>
+        <strong>ひらがな - Hiragana</strong>
+    </span>
+</td>
+<td>
+    <span>
+        <strong>Romaji
+        <br>(English Letters)</strong>
+    </span>
+</td>
+<td>
+    <span>
+        <strong>Verb Base</strong>
+    </span>
+</td>
+</tr>
+<tr>
+<td>
+    <span>着る</span>
+</td>
+<td>
+    <span>きる</span>
+</td>
+<td>
+    <span>kiru (to wear, put on)</span>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+    <span>着</span>
+</td>
+<td>
+    <span>き</span>
+</td>
+<td>
+    <span>ki</span>
+</td>
+<td>
+    <span>Base 1</span>
+</td>
+</tr>
+<tr>
+<td>
+    <span>着</span>
+</td>
+<td>
+    <span>き</span>
+</td>
+<td>
+    <span>ki</span>
+</td>
+<td>
+    <span>Base 2</span>
+</td>
+</tr>
+<tr>
+<td>
+    <span>着る</span>
+</td>
+<td>
+    <span>きる</span>
+</td>
+<td>
+    <span>kiru</span>
+</td>
+<td>
+    <span>Base 3</span>
+</td>
+</tr>
+<tr>
+<td>
+    <span>着れ</span>
+</td>
+<td>
+    <span>きれ</span>
+</td>
+<td>
+    <span>kire</span>
+</td>
+<td>
+    <span>Base 4</span>
+</td>
+</tr>
+<tr>
+<td>
+    <span>着よう</span>
+</td>
+<td>
+    <span>きよう</span>
+</td>
+<td>
+    <span>kiyou</span>
+</td>
+<td>
+    <span>Base 5</span>
+</td>
+</tr>
+<tr>
+<td>
+    <span>着て</span>
+</td>
+<td>
+    <span>きて</span>
+</td>
+<td>
+    <span>kite</span>
+</td>
+<td>
+    <span>Base "te"</span>
+</td>
+</tr>
+<tr>
+<td>
+    <span>着た</span>
+</td>
+<td>
+    <span>きた</span>
+</td>
+<td>
+    <span>kita</span>
+</td>
+<td>
+    <span>Base "ta"</span>
+</td>
+</tr>
+</tbody></table><table class="table  table-striped table-bordered" style="width: auto; display: inline-block; overflow-x: scroll;">
+<tbody><tr>
+<td>
+<span>
+    <strong>漢字 - Kanji</strong>
+</span>
+</td>
+<td>
+<span>
+    <strong>ひらがな - Hiragana</strong>
+</span>
+</td>
+<td>
+<span>
+    <strong>Romaji
+    <br>(English Letters)</strong>
+</span>
+</td>
+<td>
+<span>
+    <strong>Verb Base</strong>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<span>出来る</span>
+</td>
+<td>
+<span>できる</span>
+</td>
+<td>
+<span>dekiru (can do)</span>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<span>出来</span>
+</td>
+<td>
+<span>でき</span>
+</td>
+<td>
+<span>deki</span>
+</td>
+<td>
+<span>Base 1</span>
+</td>
+</tr>
+<tr>
+<td>
+<span>出来</span>
+</td>
+<td>
+<span>でき</span>
+</td>
+<td>
+<span>deki</span>
+</td>
+<td>
+<span>Base 2</span>
+</td>
+</tr>
+<tr>
+<td>
+<span>出来る</span>
+</td>
+<td>
+<span>できる</span>
+</td>
+<td>
+<span>dekiru</span>
+</td>
+<td>
+<span>Base 3</span>
+</td>
+</tr>
+<tr>
+<td>
+<span>出来れ</span>
+</td>
+<td>
+<span>できれ</span>
+</td>
+<td>
+<span>dekire</span>
+</td>
+<td>
+<span>Base 4</span>
+</td>
+</tr>
+<tr>
+<td>
+<span>出来よう</span>
+</td>
+<td>
+<span>できよう</span>
+</td>
+<td>
+<span>dekiyou</span>
+</td>
+<td>
+<span>Base 5</span>
+</td>
+</tr>
+<tr>
+<td>
+<span>出来て</span>
+</td>
+<td>
+<span>できて</span>
+</td>
+<td>
+<span>dekite</span>
+</td>
+<td>
+<span>Base "te"</span>
+</td>
+</tr>
+<tr>
+<td>
+<span>出来た</span>
+</td>
+<td>
+<span>できた</span>
+</td>
+<td>
+<span>dekita</span>
+</td>
+<td>
+<span>Base "ta"</span>
+</td>
+</tr>
+</tbody></table><table class="table  table-striped table-bordered" style="width: auto; display: inline-block; overflow-x: scroll;">
+<tbody><tr>
+<td>
+<span>
+<strong>漢字 - Kanji</strong>
+</span>
+</td>
+<td>
+<span>
+<strong>ひらがな - Hiragana</strong>
+</span>
+</td>
+<td>
+<span>
+<strong>Romaji
+<br>(English Letters)</strong>
+</span>
+</td>
+<td>
+<span>
+<strong>Verb Base</strong>
+</span>
+</td>
+</tr>
+<tr>
+<td>
+<span>覚える</span>
+</td>
+<td>
+<span>おぼえる</span>
+</td>
+<td>
+<span>oboeru (to remember)</span>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<span>覚え</span>
+</td>
+<td>
+<span>おぼえ</span>
+</td>
+<td>
+<span>oboe</span>
+</td>
+<td>
+<span>Base 1</span>
+</td>
+</tr>
+<tr>
+<td>
+<span>覚え</span>
+</td>
+<td>
+<span>おぼえ</span>
+</td>
+<td>
+<span>oboe</span>
+</td>
+<td>
+<span>Base 2</span>
+</td>
+</tr>
+<tr>
+<td>
+<span>覚える</span>
+</td>
+<td>
+<span>おぼえる</span>
+</td>
+<td>
+<span>oboeru</span>
+</td>
+<td>
+<span>Base 3</span>
+</td>
+</tr>
+<tr>
+<td>
+<span>覚えれ</span>
+</td>
+<td>
+<span>おぼえれ</span>
+</td>
+<td>
+<span>oboere</span>
+</td>
+<td>
+<span>Base 4</span>
+</td>
+</tr>
+<tr>
+<td>
+<span>覚えよう</span>
+</td>
+<td>
+<span>おぼえよう</span>
+</td>
+<td>
+<span>oboeyou</span>
+</td>
+<td>
+<span>Base 5</span>
+</td>
+</tr>
+<tr>
+<td>
+<span>覚えて</span>
+</td>
+<td>
+<span>おぼえて</span>
+</td>
+<td>
+<span>oboete</span>
+</td>
+<td>
+<span>Base "te"</span>
+</td>
+</tr>
+<tr>
+<td>
+<span>覚えた</span>
+</td>
+<td>
+<span>おぼえた</span>
+</td>
+<td>
+<span>oboeta</span>
+</td>
+<td>
+<span>Base "ta"</span>
+</td>
+</tr>
+</tbody></table>
+</div>
+

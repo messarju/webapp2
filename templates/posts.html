@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block title %}{{ this.title }}{% endblock %}
+{% block body %}
+  <h2>{{ this.title }}</h2>
+  {{ this.body }}
+<ol class="list-group" style="list-style: decimal inside;">
+          {% for c in this.children %}
+          <li class="list-group-item" style="display: list-item;">
+ <a href="{{ c|url }}">{{ c.title }}</a>
+          </li>
+        {% endfor %}
+</ol>
+
+{% endblock %}
