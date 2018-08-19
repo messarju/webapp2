@@ -1,11 +1,6 @@
 <?php
-class Item implements IteratorAggregate
+class SNode implements IteratorAggregate
 {
-    public function __construct($data)
-    {
-        $this->data = $data;
-    }
-
     public function __get($name)
     {
         if ($name === 'first') {
@@ -36,15 +31,15 @@ class Item implements IteratorAggregate
     }
     public function getIterator()
     {
-        return new SubItemIterator($this);
+        return new SubNodeIterator($this);
     }
 }
 
-class SubItemIterator implements Iterator
+class SubNodeIterator implements Iterator
 {
-    public function __construct($item)
+    public function __construct($node)
     {
-        $this->item = $item;
+        $this->first = $node->first;
         $this->rewind();
     }
     public function current()
@@ -63,7 +58,7 @@ class SubItemIterator implements Iterator
     }
     public function rewind()
     {
-        $this->current = $this->item->first;
+        $this->current = $this->first;
     }
     public function valid()
     {
@@ -101,7 +96,7 @@ class ItemDirectoryIterator extends DirectoryIterator
     }
 }
 
-class PathData
+class SPath
 {
     public function __construct($path)
     {
@@ -111,18 +106,16 @@ class PathData
     {
         if ($name === 'name') {
             return $this->$name = basename($this->path);
-        } else if ($name === 'prior') {
+        } else if ($name === 'prior' || $name === 'first') {
             return $this->$name = null;
-        } else if ($name === 'md5sum') {
-            return $this->$name = md5_file($this->path);
-        } else if ($name === 'sha1sum') {
-            return $this->$name = sha1_file($this->path);
+        } else if ($name === 'checksum') {
+            return $this->$name = $this->checksumHook();
         } else if ($name === 'size' || $name === 'mtime' || $name === 'uid' || $name === 'gid' || $name === 'nlink' || $name === 'perms' || $name === 'type') {
             $s           = stat($this->path);
             $m           = $s[2];
             $this->type  = 0xf000 & $m;
             $this->perms = 0x0fff & $m;
-            $this->mode = $m;
+            $this->mode  = $m;
             $this->nlink = $s[3];
             $this->uid   = $s[4];
             $this->gid   = $s[5];
@@ -140,60 +133,33 @@ class PathData
     }
 }
 
-class DirectoryData extends PathData implements IteratorAggregate
-{
-    public function getIterator()
-    {
-        return new ItemDirectoryIterator($this->path);
-    }
-    public function __get($name)
-    {
-        if ($name === 'md5sum') {
-            return $this->$name = null;
-        } else if ($name === 'sha1sum') {
-            return $this->$name = null;
-        } else if ($name === 'size') {
-            return $this->$name = null;
-        } else if ($name === 'githash') {
-
-        }
-        return parent::__get($name);
-    }
-}
-
-class FileData extends PathData
+class SDir extends SPath
 {
     public function __get($name)
     {
-        if ($name === 'md5sum') {
-            return $this->$name = md5_file($this->path);
-        } else if ($name === 'sha1sum') {
-            return $this->$name = sha1_file($this->path);
-        } else if ($name === 'githash') {
-            return $this->$name = sha1('blob ' . $this->size . "\0" . file_get_contents($this->path));
+        if ($name === 'first') {
+            $first = null;
+            $cur   = null;
+            foreach (new DirectoryIterator($this->path) as $fi) {
+                if ($fi->isDot()) {
+                    continue;
+                } else if ($fi->isDir()) {
+                    $sub = new SDir($fi->getPathname());
+                } else {
+                    $sub = new SFile($fi->getPathname());
+                }
+                $sub->parent = $this;
+                if ($cur === null) {
+                    $cur   = $sub;
+                    $first = $sub;
+                } else {
+                    $cur->next = $sub;
+                    $cur       = $sub;
+                }
+            }
+            $this->first = $first;
+            return $first;
         }
         return parent::__get($name);
-    }
-}
-
-class PathItem extends Item
-{
-
-}
-
-class FileItem extends PathItem
-{
-    public function __construct($path)
-    {
-        $this->data = new FileData($path);
-    }
-}
-
-class DirectoryItem extends PathItem
-{
-    public function __construct($path)
-    {
-        $this->data       = new DirectoryData($path);
-        $this->data->size = null;
     }
 }

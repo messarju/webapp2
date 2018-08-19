@@ -1,10 +1,10 @@
 <?php
 try {
-    if(!($path = $_REQUEST['path'])){
+    if (!isset($_REQUEST['path']) || !($path = $_REQUEST['path'])) {
         throw new RuntimeException("No path");
-    }else if (!($fp = fopen($path, 'rb'))) {
+    } else if (!($fp = fopen($path, 'rb'))) {
         throw new RuntimeException("Failed to open `$path'");
-    }else{
+    } else {
         header("Content-Length: " . filesize($path));
         fpassthru($fp);
     }

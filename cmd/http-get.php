@@ -1,8 +1,8 @@
 <?php
 try {
-    if ($url = $_REQUEST['url']) {
+    if (isset($_REQUEST['url']) && ($url = $_REQUEST['url'])) {
 
-        if ($_REQUEST['curl']) {
+        if (isset($_REQUEST['curl'])) {
             // create a new cURL resource
             $ch = curl_init();
 
@@ -16,12 +16,27 @@ try {
             // close cURL resource, and free up system resources
             curl_close($ch);
         } else {
+
+            $useragent = isset($_REQUEST['useragent']) ? $_REQUEST['useragent'] : $_SERVER['HTTP_USER_AGENT'];
             $opts = array(
                 'http' => array(
                     'method'     => "GET",
-                    'user_agent' => $_SERVER['HTTP_USER_AGENT'],
                 ),
             );
+            if (isset($_POST['header']) && !empty($_POST['header'])) {
+                $opts['http']['headers'] = $_POST['header'];
+            }
+
+            if (isset($_REQUEST['useragent'])) {
+                $useragent = $_REQUEST['useragent'];
+                if ('.' == $useragent) {
+                    $opts['http']['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
+                } else if ('-' != $useragent) {
+                    $opts['http']['user_agent'] = $useragent;
+                }
+            } else {
+                $opts['http']['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
+            }
 
             $context = stream_context_create($opts);
 
@@ -29,12 +44,14 @@ try {
                 trigger_error("Unable to open URL ($url)", E_USER_ERROR);
             }
 
-            $meta = stream_get_meta_data($fp);
-            foreach ($meta['wrapper_data'] as $value) {
-                echo ($value);
+            if (isset($_REQUEST['include']) && !empty($_REQUEST['include'])) {
+                $meta = stream_get_meta_data($fp);
+                foreach ($meta['wrapper_data'] as $value) {
+                    echo ($value);
+                    echo ("\r\n");
+                }
                 echo ("\r\n");
             }
-            echo ("\r\n");
             echo stream_get_contents($fp);
             fclose($fp);
         }
