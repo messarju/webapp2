@@ -4,13 +4,13 @@
  *
  * PHProxy
  *
- * @author		Miglen; PhoenixPeca; biojet1
- * @copyright	2002-2007 A.A. (whitefyre)
- * @description Web based http proxy written on php.
- * @url	 		https://phproxy.github.io
- * @license		GNU GPL v3
- * @repo       	https://github.com/phproxy/phproxy
- * @docs		http://phproxy.readthedocs.org
+ * @author              Miglen; PhoenixPeca; Biojet1
+ * @copyright           2002-2007 A.A. (whitefyre)
+ * @description         Web based http proxy written on php.
+ * @url                 https://phproxy.github.io
+ * @license             GNU GPL v3
+ * @repo                https://github.com/phproxy/phproxy
+ * @docs                http://phproxy.readthedocs.org
  *
  */
 
@@ -43,7 +43,7 @@ $_flags             = array
                         'rotate13'        => 0,
                         'base64_encode'   => 1,
                         'strip_meta'      => 0,
-                        'strip_title'     => 1,
+                        'strip_title'     => 0,
                         'session_cookies' => 1
                     );
 $_frozen_flags      = array
@@ -93,7 +93,7 @@ $_system            = array
                         'stripslashes' => get_magic_quotes_gpc()
                     );
 $_proxify           = array('text/html' => 1, 'application/xml+xhtml' => 1, 'application/xhtml+xml' => 1, 'text/css' => 1);
-$_version           = '1.0';
+$_version           = 'v1.1.0';
 $_http_host         = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : (isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : 'localhost');
 // https://stackoverflow.com/questions/4504831/serverhttp-host-contains-port-number-too
 $pos = strpos($_http_host, ':');
@@ -125,9 +125,9 @@ $_basic_auth_realm  = '';
 $_auth_creds        = array();
 $_response_body     = '';
 if(isset($_COOKIE['userAgent'])){
-$_user_agent        = $_COOKIE['userAgent'];
+    $_user_agent        = $_COOKIE['userAgent'];
 }else{
-$_user_agent        = isset($_SERVER['HTTP_X_IORG_FBS']) ? 'SamsungI8910/SymbianOS/6.1 PHProxy/'.$_version : $_SERVER['HTTP_USER_AGENT'];
+    $_user_agent        = isset($_SERVER['HTTP_X_IORG_FBS']) ? 'SamsungI8910/SymbianOS/6.1 PHProxy/'.$_version : $_SERVER['HTTP_USER_AGENT'];
 }
 
 # to bind to a specific ip set $_bindip to desired IP
@@ -140,7 +140,6 @@ $_bindip           = 'default';
 
 // Functions declaration
 require_once("./files/php/functions.inc.php");
-require_once("./files/php/prerequisites.inc.php");
 
 //
 // SET FLAGS
@@ -681,11 +680,6 @@ if ($_content_type == 'text/css')
 }
 else
 {
-    if(preg_match('/facebook\.com/', $_url_parts['host']) && $_content_type == 'application/xhtml+xml') {
-      $_content_type = 'text/html';
-      $_response_headers['content-type'] = $_content_type.'; charset=utf-8';
-    }
-
     if ($_flags['strip_title'])
     {
         $_response_body = preg_replace('#(<\s*title[^>]*>)(.*?)(<\s*/title[^>]*>)#is', '$1$3', $_response_body);
@@ -1080,6 +1074,7 @@ else
     }
 
     include('./files/php/misc.php');
+    require_once("./files/php/misc.override.php");
     if ($_flags['include_form'] && !isset($_GET['nf']))
     {
         $_url_form      = '<div style="width:100%;margin:0;text-align:center;border-bottom:1px solid #725554;color:#000000;background-color:#F2FDF3;font-size:12px;font-weight:bold;font-family:Bitstream Vera Sans,arial,sans-serif;padding:4px;">'
