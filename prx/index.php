@@ -124,10 +124,15 @@ $_basic_auth_header = '';
 $_basic_auth_realm  = '';
 $_auth_creds        = array();
 $_response_body     = '';
-if(isset($_COOKIE['userAgent'])){
-    $_user_agent        = $_COOKIE['userAgent'];
+$pos = $_COOKIE['userAgent'];
+if(!isset($pos) || $pos == ""){
+  $_user_agent = isset($_SERVER['HTTP_X_IORG_FBS']) ? 'SamsungI8910/SymbianOS/6.1 PHProxy/'.$_version : $_SERVER['HTTP_USER_AGENT'];
+}else if($pos == '.'){
+  $_user_agent = $_SERVER['HTTP_USER_AGENT'];
+}else if($pos == '-'){
+  $_user_agent = null;
 }else{
-    $_user_agent        = isset($_SERVER['HTTP_X_IORG_FBS']) ? 'SamsungI8910/SymbianOS/6.1 PHProxy/'.$_version : $_SERVER['HTTP_USER_AGENT'];
+  $_user_agent = $pos;
 }
 
 # to bind to a specific ip set $_bindip to desired IP
