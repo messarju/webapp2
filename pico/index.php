@@ -4,13 +4,13 @@
  *
  * PHProxy
  *
- * @author		Miglen; PhoenixPeca; Biojet1
- * @copyright	2002-2007 A.A. (whitefyre)
- * @description Web based http proxy written on php.
- * @url	 		https://phproxy.github.io
- * @license		GNU GPL v3
- * @repo       	https://github.com/phproxy/phproxy
- * @docs		http://phproxy.readthedocs.org
+ * @author              Miglen; PhoenixPeca; Biojet1
+ * @copyright           2002-2007 A.A. (whitefyre)
+ * @description         Web based http proxy written on php.
+ * @url                 https://phproxy.github.io
+ * @license             GNU GPL v3
+ * @repo                https://github.com/phproxy/phproxy
+ * @docs                http://phproxy.readthedocs.org
  *
  */
 
@@ -43,7 +43,7 @@ $_flags             = array
                         'rotate13'        => 0,
                         'base64_encode'   => 1,
                         'strip_meta'      => 0,
-                        'strip_title'     => 0,
+                        'strip_title'     => 1,
                         'session_cookies' => 1
                     );
 $_frozen_flags      = array
@@ -93,7 +93,7 @@ $_system            = array
                         'stripslashes' => get_magic_quotes_gpc()
                     );
 $_proxify           = array('text/html' => 1, 'application/xml+xhtml' => 1, 'application/xhtml+xml' => 1, 'text/css' => 1);
-$_version           = '1.0';
+$_version           = 'v1.1.0';
 $_http_host         = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : (isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : 'localhost');
 // https://stackoverflow.com/questions/4504831/serverhttp-host-contains-port-number-too
 $pos = strpos($_http_host, ':');
@@ -145,7 +145,6 @@ $_bindip           = 'default';
 
 // Functions declaration
 require_once("./files/php/functions.inc.php");
-require_once("./files/php/prerequisites.inc.php");
 
 //
 // SET FLAGS
