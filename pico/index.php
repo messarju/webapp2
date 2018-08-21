@@ -125,11 +125,11 @@ $_basic_auth_realm  = '';
 $_auth_creds        = array();
 $_response_body     = '';
 $pos = $_COOKIE['userAgent'];
-if(!isset($pos) || $pos == ""){
+if(!isset($pos) || $pos == ""){ // empty means old method
   $_user_agent = isset($_SERVER['HTTP_X_IORG_FBS']) ? 'SamsungI8910/SymbianOS/6.1 PHProxy/'.$_version : $_SERVER['HTTP_USER_AGENT'];
-}else if($pos == '.'){
+}else if($pos == '.'){ // dot means use the browsers UA
   $_user_agent = $_SERVER['HTTP_USER_AGENT'];
-}else if($pos == '-'){
+}else if($pos == '-'){ // dash means dont set UA
   $_user_agent = null;
 }else{
   $_user_agent = $pos;
@@ -1079,6 +1079,7 @@ else
     }
 
     include('./files/php/misc.php');
+    require_once("./files/php/misc.override.php");
     if ($_flags['include_form'] && !isset($_GET['nf']))
     {
         $_url_form      = '<div style="width:100%;margin:0;text-align:center;border-bottom:1px solid #725554;color:#000000;background-color:#F2FDF3;font-size:12px;font-weight:bold;font-family:Bitstream Vera Sans,arial,sans-serif;padding:4px;">'
