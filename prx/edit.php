@@ -46,6 +46,7 @@ if (isset($_POST['action']) && $_POST['action'] == "submit") {
 		<div class="form-row">
 			<button class="button-submit" type="submit" name="action" value="submit">Submit</button>
 			<button class="button-submit" type="reset" name="action" value="reset">Reset</button>
+			<a class="button-submit" href="index.php">Back</a>
 		</div>
 	</div>
 </form>
