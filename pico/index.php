@@ -43,7 +43,7 @@ $_flags             = array
                         'rotate13'        => 0,
                         'base64_encode'   => 1,
                         'strip_meta'      => 0,
-                        'strip_title'     => 1,
+                        'strip_title'     => 0,
                         'session_cookies' => 1
                     );
 $_frozen_flags      = array
