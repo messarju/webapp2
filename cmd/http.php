@@ -86,7 +86,7 @@ try {
 			echo ("\r\n");
 		}
 		if($use_content_type){
-			echo("Content-Type: $use_content_type\r\n");
+			header("Content-Type: $use_content_type");
 		}
 		if($use_md5){
 
@@ -94,7 +94,9 @@ try {
 
 		}
 		echo ("\r\n");
-		echo stream_get_contents($fp);
+		if($opts['http']['method'] !== 'HEAD'){
+			echo stream_get_contents($fp);
+		}
 		fclose($fp);
 	}else{
 		echo stream_get_contents($fp);
