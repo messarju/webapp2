@@ -28,9 +28,9 @@ def index(request):
 							text = format_exc()
 						if text is None:
 							text = "None"
-					elif text.startswith("py ") or text.startswith("Py "):
+					elif (text.startswith("py") or text.startswith("Py")) and (len(text) >  2) and text[2].isspace() :
 						try:
-							text = exec_py(text[3:].strip())
+							text = exec_py(text[3:].strip(), request)
 						except:
 							from traceback import format_exc
 							text = format_exc()
@@ -149,5 +149,5 @@ def exec_dl(args):
 				return str(call(cmd, **kwargs))
 			return check_output(cmd, **kwargs)
 
-def exec_py(code):
-	return __import__(__package__, fromlist=['run',]).run.load_compiled_from_memory("__run_module", "__run_file", compile(code, "__run_file", "exec")).main()
+def exec_py(code, request):
+	return __import__(__package__, fromlist=['run',]).run.load_compiled_from_memory("__run_module", "__run_file", compile(code, "__run_file", "exec")).main(request)
