@@ -1,0 +1,9 @@
+_model: home
+---
+title: Welcome to Lets Japanese!
+---
+body:
+
+<img src="banner.png" class="img-fluid" alt="Responsive image">
+
+If you want to learn the Japanese language (or "Nihongo" as it's called in Japanese) online, you've come to the right place! Our lessons can get you well on your way to learning how to speak, read, and write Nihongo - the Japanese language. On this site you will find such things as the Japanese alphabet (including Hiragana and Katakana) as well as Kanji, Japanese vocabulary, Japanese grammar, Japanese sentence structure, and common Japanese phrases.

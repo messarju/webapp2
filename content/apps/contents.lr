@@ -1,0 +1,45 @@
+_model: page
+---
+title: Apps
+---
+body:
+
+
+### zKanji
+<span class="badge badge-info">Windows</span>
+
+<img src="zkanji.png" class="img-fluid" alt="Responsive image">
+
+[zKanji](http://zkanji.sourceforge.net/) is a free and open-source study tool and dictionary of the Japanese language. It has several useful features for beginners and advanced students alike. Dictionary, example sentences, kanji search and information with animated stroke order diagrams, vocabulary list printing, study functions and much more
+
+### Tagaini Jisho
+
+<span class="badge badge-info">Windows</span>
+<span class="badge badge-info">Linux</span>
+<span class="badge badge-info">Mac</span>
+
+<img src="tagaini.png" class="img-fluid" alt="Responsive image">
+
+[Tagaini Jisho](https://www.tagaini.net/) is a free, open-source Japanese dictionary and kanji lookup tool for Windows, MacOS X and Linux and aims at becoming your Japanese study assistant. It allows you to quickly search for entries and mark those that you wish to study, along with tags and personal notes. It also let you train entries you are studying and follows your progression in remembering them. Finally, it makes it easy to review entries you did not remember by listing them on screen or printing them on a small booklet
+
+### Takoboto
+
+<span class="badge badge-info">Windows</span>
+<span class="badge badge-info">Android</span>
+<span class="badge badge-info">Web</span>
+
+<img src="takoboto.png" class="img-fluid" alt="Responsive image">
+
+[Takoboto](http://takoboto.jp/) is a Japanese/English dictionary and Japanese language learning tool. It searches words written in Japanese or English using kanji, kana, romaji or latin alphabets. Example sentences and kanji information are provided for each word.
+
+
+###Kanji Recognizer
+
+<span class="badge badge-info">Android</span>
+
+<img src="kanjirec.png" class="img-fluid" alt="Responsive image">
+
+[Kanji Recognizer](https://sites.google.com/site/kanjirecognizer/) is a Japanese handwriting recognition, kanji dictionary and writing quiz for Android.  Just draw a character, tap 'Recognize' and select a candidate to display reading, meaning, radical and more. No need to search by radicals or count strokes.
+
+---
+_discoverable: yes

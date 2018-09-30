@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="{{ '/static/style.css'|url }}">
+    <link rel="stylesheet" href="{{ '/static/css/bootstrap.min.css'|url }}">
+    <title>{% block title %}Welcome{% endblock %} — Lets Japanese</title>
+    <style></style>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark" style="background: linear-gradient(to bottom, rgb(82, 25, 144), rgba(0, 0, 0, 0));">
+      <a class="navbar-brand" href="{{ '/'|url }}"><img src="{{ '/static/head.png'|url }}" style="width:2em; heigth:2em;" alt="">Lets Japanese</a>
+      <ul class="nav justify-content-center">
+        {% for href, title in [ ['/lessons', 'Lessons'], ['/links', 'Links'], ['/books', 'Books'], ['/apps', 'Apps'] ] %}
+          <li class="nav-item"><a class="nav-link" {% if this.is_child_of(href) %} class="active" {% endif %} href="{{ href|url }}">{{ title }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+    <div class="container">
+      {% block body %}{% endblock %}
+      <small class="align-middle">
+        {% for href, title in [ ['/terms', 'Terms'], ['/privacy', 'Privacy'] ] %}
+          <a {% if this.is_child_of(href) %} class="active" {% endif %} href="{{ href|url }}">{{ title }}</a>
+        {% endfor %}
+      </small>
+    </div>
+  </body>
+</html>
+
