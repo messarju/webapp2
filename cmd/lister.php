@@ -219,7 +219,7 @@ class Ls extends Lister
     {
         foreach ($dir as $sub) {
             $this->line($sub);
-            if ($sub->data->mode & 0040000) {
+            if ($this->dive && $sub->data->mode & 0040000 ) {
                 $this->walk($sub);
             }
         }
@@ -233,6 +233,7 @@ class Ls extends Lister
         $this->usePerms = isset($req['perms']) ? boolval($req['perms']) : true;
         $this->useHash  = isset($req['hash']) ? $req['hash'] : false;
         $this->dirHash  = isset($req['hashd']) ? $req['hashd'] : false;
+        $this->dive  = isset($req['dive']) ? boolval($req['dive']) : true;
         $pad            = isset($req['pad']) ? boolval($req['pad']) : true;
         if ($pad) {
             $this->padSize = 1;
