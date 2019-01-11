@@ -1,0 +1,59 @@
+<?php
+
+$INFO="";
+$URL="";
+
+if (isset($_REQUEST['submit'])) {
+    $URL = $_REQUEST['url'];
+    if ($URL != null) {
+        $INFO=$URL;
+    }
+}
+
+if($URL){
+    $YT_FILE="youtube-dl";
+    $YT_LATEST="https://yt-dl.org/downloads/latest/youtube-dl";
+    // $YT_LATEST="file:///mnt/META/wrx/www/biojet1.github.io/local/notes.html";
+    if(!file_exists($YT_FILE)){
+        exec( 'curl -L ' . escapeshellarg($YT_LATEST) . ' -o ' . escapeshellarg($YT_FILE) );
+    }
+    if(file_exists($YT_FILE)){
+        $INFO=system('python ' . escapeshellarg($YT_FILE) . ' -J ' . escapeshellarg($URL));
+    }
+}
+
+
+$FORM_URL=htmlentities($_SERVER['PHP_SELF']);
+$URL=htmlentities($URL);
+$INFO=htmlentities($INFO);
+
+$xml = <<<EOD
+<html dir="ltr" lang="en">
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Youtube-dl query</title>
+        <style type="text/css">
+
+        </style>
+    </head>
+    <body>
+        <form id="yt-url" action="$FORM_URL" method="POST">
+            <input name="url" class="search" size="128" placeholder="Video URL" autocomplete="off" type="text" value="$URL"/>
+            <input name="submit" value="Go" type="submit"/>
+        </form>
+        <div>$INFO</div>
+    </body>
+EOD;
+// $doc = new DOMDocument();
+// $doc->loadXML($xml);
+// echo $doc->saveXML();
+/*
+( pushd /mnt/META/wrx/python/fbpdl ; make .build/wskit.src ; .build/wskit.src -H "$WS_HTTP" -u "$WS_CMD_URL" exec -- python youtube-dl -J https://drive.google.com/file/d/0B5FgsvSmwPTCZUh0blk5UTdRVms/ | jq . > '/tmp/yt2.json' )
+
+(reverse-i-search)`youtube': ( pushd /mnt/META/wrx/python/fbpdl ; make .build/wskit.src ; .build/wskit.src -H "$WS_HTTP" -u "$WS_CMD_URL" exec -- curl -L https://yt-dl.org/downloads/latest/youtube-dl -o youtube-dl)
+
+*/
+
+
+echo($xml);
