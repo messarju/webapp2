@@ -10,6 +10,9 @@ if (isset($_REQUEST['submit'])) {
     }
 }
 
+// $arr = array('a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5);
+// echo json_encode($arr, JSON_PRETTY_PRINT);
+
 if($URL){
     $YT_FILE="youtube-dl";
     $YT_LATEST="https://yt-dl.org/downloads/latest/youtube-dl";
@@ -18,7 +21,9 @@ if($URL){
         exec( 'curl -L ' . escapeshellarg($YT_LATEST) . ' -o ' . escapeshellarg($YT_FILE) );
     }
     if(file_exists($YT_FILE)){
-        $INFO=system('python ' . escapeshellarg($YT_FILE) . ' -J ' . escapeshellarg($URL));
+        $out = system('python ' . escapeshellarg($YT_FILE) . ' -J ' . escapeshellarg($URL));
+        $json = json_decode($out);
+        $INFO = json_encode($json, JSON_PRETTY_PRINT);
     }
 }
 
@@ -33,17 +38,20 @@ $xml = <<<EOD
         <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Youtube-dl query</title>
-        <style type="text/css">
-
-        </style>
+        <style type="text/css">            body {
+                font-size: 1rem;
+                background: lightslategray;
+            }
+</style>
     </head>
     <body>
         <form id="yt-url" action="$FORM_URL" method="POST">
             <input name="url" class="search" size="128" placeholder="Video URL" autocomplete="off" type="text" value="$URL"/>
             <input name="submit" value="Go" type="submit"/>
         </form>
-        <div>$INFO</div>
+        <pre>$INFO</pre>
     </body>
+</html>
 EOD;
 // $doc = new DOMDocument();
 // $doc->loadXML($xml);
