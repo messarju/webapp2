@@ -33,16 +33,14 @@ $URL=htmlentities($URL);
 $INFO=htmlentities($INFO);
 
 $xml = <<<EOD
-<html dir="ltr" lang="en">
+<html>
     <head>
-        <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Youtube-dl query</title>
         <style type="text/css">            body {
                 font-size: 1rem;
                 background: lightslategray;
             }
-</style>
+        </style>
     </head>
     <body>
         <form id="yt-url" action="$FORM_URL" method="POST">
@@ -57,9 +55,8 @@ EOD;
 // $doc->loadXML($xml);
 // echo $doc->saveXML();
 /*
-( pushd /mnt/META/wrx/python/fbpdl ; make .build/wskit.src ; .build/wskit.src -H "$WS_HTTP" -u "$WS_CMD_URL" exec -- python youtube-dl -J https://drive.google.com/file/d/0B5FgsvSmwPTCZUh0blk5UTdRVms/ | jq . > '/tmp/yt2.json' )
-
-(reverse-i-search)`youtube': ( pushd /mnt/META/wrx/python/fbpdl ; make .build/wskit.src ; .build/wskit.src -H "$WS_HTTP" -u "$WS_CMD_URL" exec -- curl -L https://yt-dl.org/downloads/latest/youtube-dl -o youtube-dl)
+        <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 */
 
