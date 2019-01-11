@@ -36,11 +36,6 @@ $xml = <<<EOD
 <html>
     <head>
         <title>Youtube-dl query</title>
-        <style type="text/css">            body {
-                font-size: 1rem;
-                background: lightslategray;
-            }
-        </style>
     </head>
     <body>
         <form id="yt-url" action="$FORM_URL" method="POST">
@@ -48,6 +43,12 @@ $xml = <<<EOD
             <input name="submit" value="Go" type="submit"/>
         </form>
         <pre>$INFO</pre>
+        <style type="text/css">            body {
+                font-size: 1rem;
+                background: lightslategray;
+            }
+        </style>
+        <small>2019-01-11 14:44:37+0800</small>
     </body>
 </html>
 EOD;
