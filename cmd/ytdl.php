@@ -32,7 +32,7 @@ if($URL){
         $out = shell_exec($cmd);
         if($action == 'json'){
            $json = json_decode($out);
-           $INFO = json_encode($json, JSON_PRETTY_PRINT);
+           $INFO = json_encode($json, JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
         }else{
            $INFO = $out;
         }
