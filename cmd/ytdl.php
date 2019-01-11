@@ -7,7 +7,7 @@ if ($action && isset($action)) {
     $action = strtolower($action);
     $URL = $_REQUEST['url'];
     if ($URL != null) {
-        $INFO=$URL;
+        $INFO=trim($URL);
     }
 }
 // $arr = array('a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5);
@@ -23,15 +23,19 @@ if($URL){
     // $YT_LATEST="file:///mnt/META/wrx/www/biojet1.github.io/local/notes.html";
     if(file_exists($YT_FILE)){
         $cmd = 'python ' . escapeshellarg($YT_FILE);
-        if($action=='json'){
+        if($action == 'json'){
             $cmd = $cmd . ' -J';
         }else{
             $cmd = $cmd . ' -F';
         }
         $cmd = $cmd . ' ' . escapeshellarg($URL);
-        $out = shell_exec($cmd . ' 2>&1');
-        $json = json_decode($out);
-        $INFO = json_encode($json, JSON_PRETTY_PRINT);
+        $out = shell_exec($cmd);
+        if($action == 'json'){
+           $json = json_decode($out);
+           $INFO = json_encode($json, JSON_PRETTY_PRINT);
+        }else{
+           $INFO = $out;
+        }
     }
 }
 // print_r($action);
@@ -51,6 +55,7 @@ $xml = <<<EOD
         <title>Youtube-dl query</title>
     </head>
     <body>
+        <small>Enter URL:</small>
         <form id="yt-url" action="$FORM_URL" method="POST">
             <input name="url" class="search" size="128" placeholder="Video URL" autocomplete="off" type="text" value="$URL"/>
             <div>
