@@ -11,6 +11,7 @@ try {
 	$opts = array(
 		'http' => array(
 			'method' => "GET",
+			'user_agent' => $_SERVER['HTTP_USER_AGENT'],
 			'header' => [],
 		),
 	);
@@ -109,6 +110,7 @@ try {
 
 } catch (Exception $e) {
 	header("HTTP/1.0 500 Internal Server Error");
+	header("Content-Type: text/html");
 	echo $e->getMessage();
 }
 

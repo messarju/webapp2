@@ -2,14 +2,14 @@
 
 $INFO="";
 $URL="";
-$action=$_REQUEST['action'];
-if ($action && isset($action)) {
-    $action = strtolower($action);
+$action=isset($_REQUEST['action']) ? strtolower($_REQUEST['action']) : "";
+if ($action) {
     $URL = $_REQUEST['url'];
     if ($URL != null) {
-        $INFO=trim($URL);
+        $URL=trim($URL);
     }
 }
+$METHOD=isset($_REQUEST['method']) ? strtoupper($_REQUEST['method']) : "POST";
 // $arr = array('a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5);
 // echo json_encode($arr, JSON_PRETTY_PRINT);
 
@@ -46,6 +46,7 @@ if(!$INFO){
 $FORM_URL=htmlentities($_SERVER['PHP_SELF']);
 $URL=htmlentities($URL);
 $INFO=htmlentities($INFO);
+$METHOD=htmlentities($METHOD);
 
 $xml = <<<EOD
 <html>
@@ -53,22 +54,22 @@ $xml = <<<EOD
         <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Youtube-dl query</title>
-    </head>
-    <body>
-        <small>Enter URL:</small>
-        <form id="yt-url" action="$FORM_URL" method="POST">
-            <input name="url" class="search" size="128" placeholder="Video URL" autocomplete="off" type="text" value="$URL"/>
-            <div>
-                <input name="action" value="Json" type="submit"/>
-                <input name="action" value="Formats" type="submit"/>
-            </div>
-       </form>
-        <pre>$INFO</pre>
         <style type="text/css">            body {
                 font-size: 1rem;
                 background: lightslategray;
             }
         </style>
+    </head>
+    <body>
+        <small>Enter URL:</small>
+        <form id="yt-url" action="$FORM_URL" method="$METHOD">
+            <input style="width: 100%;" name="url" class="search" size="128" placeholder="Video URL" autocomplete="off" type="text" value="$URL"/>
+            <div>
+                <input name="action" value="Formats" type="submit"/>
+                <input name="action" value="Json" type="submit"/>
+            </div>
+       </form>
+        <pre>$INFO</pre>
         <small>2019-01-11 14:44:37+0800</small>
     </body>
 </html>

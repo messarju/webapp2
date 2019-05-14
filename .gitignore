@@ -1,4 +1,4 @@
-.lektor/
+.*/
 vendor/
-.env
+.fuse_hidden*
 
